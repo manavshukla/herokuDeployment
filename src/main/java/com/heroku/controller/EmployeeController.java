@@ -66,7 +66,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteEmployeeById(@RequestParam Long id) {
+    public ResponseEntity<?> deleteEmployeeById(@PathVariable Long id) {
         try {
             Employee employee = employeeService.getEmployeeById(id);
             return ResponseEntity.status(HttpStatus.OK).body("Employee deleted with id:-" + id + "Employee:-" + employee);
