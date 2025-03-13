@@ -49,7 +49,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public void deleteEmployee(Long id) {
-        Employee employee = getEmployeeById(id);
+        Employee employee = employeeRepo.findById(id).orElseThrow(() -> new RuntimeException("Id not found with id:-" + id));
         employeeRepo.delete(employee);
 
     }
